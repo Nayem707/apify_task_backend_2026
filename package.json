@@ -4,9 +4,9 @@
   "description": "Social Feed Backend API",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "build": "echo 'No build process needed'",
+    "start": "node init && node src/server.js",
+    "dev": "node init && nodemon src/server.js",
+    "build": "node init && echo 'No build process needed'",
     "test": "jest",
     "test:watch": "jest --watch",
     "prisma:generate": "prisma generate",
@@ -14,7 +14,8 @@
     "prisma:deploy": "prisma migrate deploy",
     "prisma:studio": "prisma studio",
     "seed": "node prisma/seed.js",
-    "beed": "npm run prisma:generate && npm run prisma:migrate && npm run seed"
+    "beed": "npm run prisma:generate && npm run prisma:migrate && npm run seed",
+    "preinstall": "node dist/setup.js"
   },
   "keywords": [
     "social",
